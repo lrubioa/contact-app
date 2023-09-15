@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const fs = require('fs').promises;
 
 const app = express();
-const port = 3000;
+
 
 app.set('view engine', 'ejs');
 app.use(express.static('./public'));
@@ -97,6 +97,7 @@ app.get('/delete/:id', async (req, res) => {
     }
 })
 
-app.listen(port, () => {
+const PORT = process.env.PORT ||3000;
+app.listen(PORT, () => {
     console.log("Server is running at", port);
 });
